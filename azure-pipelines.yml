@@ -12,9 +12,6 @@ pool:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'brew install Azure/kubelogin/kubelogin'
-- task: CmdLine@2
-  inputs:
     script: 'kubectl apply -f azure-vote-all-in-one-redis.yaml'
 
 - task: Kubernetes@1
