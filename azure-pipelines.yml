@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: AKS-agentpool
+  name: AKS-agentpool
 
 steps:
 - script: echo Hello, world!
