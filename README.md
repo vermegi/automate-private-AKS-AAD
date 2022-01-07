@@ -63,7 +63,8 @@ az aks get-credentials -n <name of the cluser> -g <rg-name>
 ```
 This will create a kubeconfig file for you
 
-- Install [kubelogin](https://github.com/Azure/kubelogin). I did this through homebrew 
+- Install [kubelogin](https://github.com/Azure/kubelogin). I did this through homebrew
+- Once installed, you can start using it: 
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
