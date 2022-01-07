@@ -12,7 +12,7 @@ pool:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'brew uninstall Azure/kubelogin/kubelogin'
+    script: 'brew install Azure/kubelogin/kubelogin'
 - task: CmdLine@2
   inputs:
     script: 'kubectl apply -f azure-vote-all-in-one-redis.yaml'
