@@ -32,7 +32,7 @@
     # download azdo agent
     mkdir -p /opt/azdo && cd /opt/azdo
     cd /opt/azdo
-    curl -o azdoagent.tar.gz https://vstsagentpackage.azureedge.net/agent/2.175.2/vsts-agent-linux-x64-2.175.2.tar.gz
+    curl -o azdoagent.tar.gz https://vstsagentpackage.azureedge.net/agent/2.195.2/vsts-agent-linux-x64-2.195.2.tar.gz
     tar xzvf azdoagent.tar.gz
     rm -f azdoagent.tar.gz
     
