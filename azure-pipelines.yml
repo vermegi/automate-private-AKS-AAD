@@ -20,8 +20,10 @@ steps:
 
 - task: Kubernetes@1
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'AKS_MI_Connection'
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'AKS_SC_MI'
+    azureResourceGroup: 'az-k8s-6460-rg'
+    kubernetesCluster: 'aks-az-k8s-6460'
     command: 'apply'
     arguments: '-f azure-vote-all-in-one-redis.yaml'
     secretType: 'dockerRegistry'
