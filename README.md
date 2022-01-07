@@ -1,0 +1,1 @@
+# automate-private-AKS-AAD
