@@ -41,7 +41,5 @@
     chmod -R 755 /opt/azdo
     runuser -l $agentuser -c "/opt/azdo/config.sh --unattended --url $azdourl --auth pat --token $pat --pool $pool --acceptTeeEula"
     
-    # install and start the service
-    ./svc.sh install
-    ./svc.sh start
-
+    # start the service
+    ./run.sh
