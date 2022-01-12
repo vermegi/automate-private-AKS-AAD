@@ -17,7 +17,7 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'AKS_Service_Account3'
+    kubernetesServiceEndpoint: 'AKS_MI_Connection'
     command: 'apply'
     arguments: '-f azure-vote-all-in-one-redis.yaml'
     secretType: 'dockerRegistry'
