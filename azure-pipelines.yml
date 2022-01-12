@@ -14,6 +14,10 @@ steps:
 #   inputs:
 #     script: 'kubectl apply -f azure-vote-all-in-one-redis.yaml'
 
+- task: CmdLine@2
+  inputs:
+    script: 'who'
+    
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
