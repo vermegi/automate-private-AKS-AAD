@@ -73,6 +73,14 @@ kubectl get nodes
 # this will not ask you to log in again, it will reuse your CLI creds.
 ```
 
+- Double check whether kubelogin is in your /usr/bin directory of the agent, if it is not, copy it to this location. If it is only on the linuxbrew directory, using it in a pipeline will fail with error message kubelogin cannot be found.
+- You can now create a Kubernetes SC in DevOps with the contents of your kube config file. 
+- Create pipeline with kubernetes task using the SC you just created. 
+
+## Using MI of the machine
+
+On the agent machine: 
+
 - Create a rolebinding for your MI: 
 
 ```bash
@@ -108,3 +116,7 @@ kubelogin convert-kubeconfig -l msi
 kubectl get nodes
 # this should work
 ```
+
+- In DevOps create ARM Service Connection using MI. 
+- Still figuring out the next steps, since pipeline task fails. 
+
