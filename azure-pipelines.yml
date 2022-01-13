@@ -16,8 +16,8 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'who'
-    
+    script: 'ps aux | grep myagent'
+
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
