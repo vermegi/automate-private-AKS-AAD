@@ -39,4 +39,5 @@ steps:
     arguments: '-f azure-vote-all-in-one-redis.yaml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
-    versionSpec: '1.23'
+    versionSpec: 
+    checkLatest: true
