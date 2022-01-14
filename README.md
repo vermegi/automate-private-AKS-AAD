@@ -118,5 +118,10 @@ kubectl get nodes
 ```
 
 - In DevOps create ARM Service Connection using MI. 
-- Still figuring out the next steps, since pipeline task fails. 
+- In the pipeline use Azure CLI task. You can now issue direct kubectl statements in this task 
+
+>[!NOTE]
+>Do not use kubectl (Kubernetes@1) task, this one seems to have a [bug](https://github.com/microsoft/azure-pipelines-tasks/issues/15714)
+
+
 
