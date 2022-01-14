@@ -24,7 +24,9 @@ steps:
     azureSubscription: 'AKS_SC_MI'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'kubectl get nodes'
+    inlineScript: |
+      az login --identity
+      kubectl get nodes
 
 - task: Kubernetes@1
   inputs:
