@@ -25,8 +25,8 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az login --identity
-      kubectl get nodes
+      # az login --identity
+      # kubectl get nodes
       kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 # - task: Kubernetes@1
