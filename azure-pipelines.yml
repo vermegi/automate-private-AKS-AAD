@@ -22,7 +22,7 @@ steps:
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'AKS_SC_MI'
-    scriptType: 'batch'
+    scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'az login --identity'
 
