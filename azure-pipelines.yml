@@ -39,5 +39,4 @@ steps:
     arguments: '-f azure-vote-all-in-one-redis.yaml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
-    versionOrLocation: 'location'
-    specifyLocation: '/usr/bin'
+    versionSpec: '1.23'
