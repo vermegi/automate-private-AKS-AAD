@@ -18,6 +18,14 @@ steps:
   inputs:
     script: 'ps aux | grep myagent'
 
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'AKS_SC_MI'
+    scriptType: 'batch'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'kubectl get nodes'
+
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
