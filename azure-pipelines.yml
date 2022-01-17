@@ -29,7 +29,7 @@ steps:
       # kubectl get nodes
       az aks get-credentials -n aks-az-k8s-6460 -g az-k8s-6460-rg
       kubelogin convert-kubeconfig -l azurecli
-      kubectl apply -f azure-vote-all-in-one-redis.yaml
+      kubectl apply -f azure-vote-all-in-one-redis.yaml --namespace gitte2
 
 
 
