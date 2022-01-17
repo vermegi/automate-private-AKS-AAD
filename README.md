@@ -124,4 +124,25 @@ kubectl get nodes
 >Do not use kubectl (Kubernetes@1) task, this one seems to have a [bug](https://github.com/microsoft/azure-pipelines-tasks/issues/15714)
 
 
+## Service Principal Connection
+
+- Create a service principal
+
+```bash
+az ad sp create-for-rbac --name <SPNAme> --role READER --scopes /subscriptions/<subscription_ID>/resourceGroups/az-k8s-6460-rg --sdk-auth
+```
+
+- Create a new Service Connection in Azure DevOps using the details of this service principal
+- Give service principal roles into the namespace
+
+```bash
+AKS_ID=$(az aks show -g az-k8s-6460-rg -n az-k8s-6460 --query id -o tsv)
+kubectl create namespace gitte
+az role assignment create --role "Azure Kubernetes Service RBAC Writer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespace/gitte
+az role assignment create --assignee b42354cd-42f9-4854-81c5-085f6aa72584 --scope $AKS_ID --role "Azure Kubernetes Service Cluster User Role"
+```
+
+> [!NOTE]
+> Even though you log in with a specific SP for the Azure CLI task, in case the agent has an existing kube config file, credentials in this config file will be taken for kubectl apply. Hence you need to first issue az aks get-credentials in the Azure CLI task, to perform operations under current account. 
+
 
