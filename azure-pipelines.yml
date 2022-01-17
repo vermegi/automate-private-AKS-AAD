@@ -21,7 +21,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'AKS_SC_MI'
+    azureSubscription: 'AKS_SP'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -33,11 +33,12 @@ steps:
 
 - task: Kubernetes@1
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'AKS_Service_Account'
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'AKS_SP'
+    azureResourceGroup: 'az-k8s-6460-rg'
+    kubernetesCluster: 'aks-az-k8s-6460'
     command: 'apply'
     arguments: '-f azure-vote-all-in-one-redis.yaml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
-    versionSpec: 
     checkLatest: true
