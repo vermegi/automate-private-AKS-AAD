@@ -21,7 +21,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'AKS_SP'
+    azureSubscription: 'AKS_SP2'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -34,7 +34,7 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'AKS_SP'
+    azureSubscriptionEndpoint: 'AKS_SP2'
     azureResourceGroup: 'az-k8s-6460-rg'
     kubernetesCluster: 'aks-az-k8s-6460'
     command: 'apply'
