@@ -19,26 +19,28 @@ steps:
     script: 'ps aux | grep myagent'
 
 
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'AKS_SP3'
-#     scriptType: 'bash'
-#     scriptLocation: 'inlineScript'
-#     inlineScript: |
-#       # az login --identity
-#       # kubectl get nodes
-#       kubectl apply -f azure-vote-all-in-one-redis.yaml
-
-
-
-- task: Kubernetes@1
+- task: AzureCLI@2
   inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'AKS_SP3'
-    azureResourceGroup: 'az-k8s-6460-rg'
-    kubernetesCluster: 'aks-az-k8s-6460'
-    command: 'apply'
-    arguments: '-f azure-vote-all-in-one-redis.yaml'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
-    checkLatest: true
+    azureSubscription: 'AKS_SP3'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      # az login --identity
+      # kubectl get nodes
+      az aks get-credentials -n aks-az-k8s-6460 -g az-k8s-6460-rg
+      kubelogin convert-kubeconfig -l azurecli
+      kubectl apply -f azure-vote-all-in-one-redis.yaml
+
+
+
+# - task: Kubernetes@1
+#   inputs:
+#     connectionType: 'Azure Resource Manager'
+#     azureSubscriptionEndpoint: 'AKS_SP3'
+#     azureResourceGroup: 'az-k8s-6460-rg'
+#     kubernetesCluster: 'aks-az-k8s-6460'
+#     command: 'apply'
+#     arguments: '-f azure-vote-all-in-one-redis.yaml'
+#     secretType: 'dockerRegistry'
+#     containerRegistryType: 'Azure Container Registry'
+#     checkLatest: true
