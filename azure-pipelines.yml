@@ -21,13 +21,13 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'AKS_SP2'
+    azureSubscription: 'AKS_SP3'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
       # az login --identity
       # kubectl get nodes
-      kubectl apply -f azure-vote-all-in-one-redis.yaml -n gitte
+      kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 
 
